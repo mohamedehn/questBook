@@ -52,10 +52,10 @@ public class BookController {
         return repo.save(bookToUpdate);
     }
 
-    //to search a book with id
+    //to search a specific books with a text contained in title or description
     @PostMapping("/books/search")
-    public List<Book> search(@RequestBody Map<String, String> body){
+    public List<Book> search(@RequestBody Map<String, String> body) {
         String searchTerm = body.get("text");
-        return repo.findByTitleContainingOrContentContaining(searchTerm, searchTerm);
+        return repo.findByTitleContainingOrDescriptionContaining(searchTerm, searchTerm);
     }
 }
