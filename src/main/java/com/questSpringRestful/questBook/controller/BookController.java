@@ -11,8 +11,12 @@ import java.util.Map;
 @RestController
 public class BookController {
 
-    @Autowired
-    BookRepository repo;
+
+    public final BookRepository repo;
+    public BookController(BookRepository repositoryInjected){
+        this.repo = repositoryInjected;
+    };
+
     //get all books
     //localhost:8080/books
     @GetMapping("/books")
